@@ -25,6 +25,7 @@ var licenseTemplate = make(map[string]*template.Template)
 func init() {
 	licenseTemplate["apache"] = template.Must(template.New("").Parse(tmplApache))
 	licenseTemplate["mit"] = template.Must(template.New("").Parse(tmplMIT))
+	licenseTemplate["bsd"] = template.Must(template.New("").Parse(tmplBSD))
 }
 
 type copyrightData struct {
@@ -96,3 +97,7 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.`
+
+const tmplBSD = `Copyright {{.Year}} {{.Holder}}. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.`
